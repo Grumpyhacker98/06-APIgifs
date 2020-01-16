@@ -9,8 +9,9 @@ function animalBtn(){
     for(var i=0;i<animals.length;i++){
 
         var newButton = $("<button>");
-        newButton.addClass("gifclass");
-        newButton.attr("id", "gif-"+i);
+        newButton.addClass("animalBtn");
+        newButton.attr("id", "Btn-"+i);
+        newButton.attr("data",animals[i])
         newButton.text(animals[i]);
         $("#gifButton").append(newButton);
 
@@ -18,21 +19,23 @@ function animalBtn(){
 }
 
 
-// generate 10 new animal gifs
-$(".animal").on("click", function() {
-// grab 10 animal gifs from the website
-// give them indivigual identity classes when being created
-// print
+
+function animalGifs(){
+    event.preventDefault();
+    
+    animal = $(this).attr("data")
+    queryURL = "https://api.giphy.com/v1/gifs/search?q="+animal+"&api_key=8mDn00XQKeMIdoTpbO6X7xgjK2CZAVK0&limit=10"
+
+    console.log(queryURL)
+
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-
+        console.log(response)
     });
+}
 
-});
-
-// 06/16ish has good code for this
 // pause unpause animal gifs
 $("-----").on("click", function() {
     // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
@@ -62,6 +65,7 @@ $("#animalAdd").click(function(event) {
 
 });
 
+$(document).on("click", ".animalBtn", animalGifs);
 
 
 animalBtn()

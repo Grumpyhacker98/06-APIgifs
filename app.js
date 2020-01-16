@@ -2,16 +2,34 @@
 animals = ["cats","dogs","birds","fish"]
 
 // load the animal buttons from the animal button array
-// function run on page load and on when animals are added
+function animalBtn(){
 
+    $("#gifButton").empty()
 
-// onpageload
+    for(var i=0;i<animals.length;i++){
+
+        var newButton = $("<button>");
+        newButton.addClass("gifclass");
+        newButton.attr("id", "gif-"+i);
+        newButton.text(animals[i]);
+        $("#gifButton").append(newButton);
+
+    }
+}
+
 
 // generate 10 new animal gifs
-$("button").on("click", function() {
+$(".animal").on("click", function() {
 // grab 10 animal gifs from the website
 // give them indivigual identity classes when being created
 // print
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+
+    });
+
 });
 
 // 06/16ish has good code for this
@@ -38,23 +56,15 @@ $("#animalAdd").click(function(event) {
 
     temp = $("#animalNew").val()
     animals.push(temp)
+    console.log(animals)
+
+    animalBtn()
 
 });
 
-// var myButton = $("<button>");
-// myButton.attr("data-my-name", "Bond, James Bond");
-// myButton.addClass("secret-agent");
-// myButton.attr("id", "double-O-seven");
-// myButton.text("Shaken, not stirred!");
-// $("#animal-gifs").append(myButton);
 
-// $.ajax({
-//     url: queryURL,
-//     method: "GET"
-// }).then(function(response) {
 
-// });
-
+animalBtn()
 
 // code from the gif pause activity
 

@@ -2,24 +2,32 @@
 <html>
 <head>
     <title>MaxL-06</title>
-    <!-- jquery -->
-    <script src="app.js"></script>
+    
 </head>
 <body>
     <!-- animal button array -->
-    <div id="gif-button">
+    <div id="gifButton">
 
     </div>
 
     <!-- add an animal -->
     <div>
-        <h3>Add an Animal</h3>
-        <input id="animal-add">
+        <label for="animalNew">Add an Animal</label>
+        <input type="text" id="animalNew">
+        <button id="animalAdd" type="submit">Add!</button>
     </div>
 
     <!-- animal gifs -->
-    <div id="animal-gifs">
-
+    <div id="animalGifs">
+        <p>i exist!</p>
+        <button type="submit" id="submitInfo" class="btn btn-primary">Submit</button>
     </div>
+    
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.slim.js"
+        integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+        crossorigin="anonymous">
+    </script>
+    <script src="app.js"></script>
 </body>
 </html>
